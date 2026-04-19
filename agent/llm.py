@@ -8,7 +8,7 @@ client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
 class GroqLLM:
     def __init__(self, model: str = None):
-        self.model = model or os.getenv("LLM_MODEL", "meta-llama/llama-4-maverick-17b-128e-instruct")
+        self.model = model or os.getenv("LLM_MODEL", "llama-3.3-70b-versatile")
     
     def invoke(self, prompt: str) -> str:
         response = client.chat.completions.create(

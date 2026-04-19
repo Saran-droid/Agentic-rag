@@ -1,6 +1,6 @@
 from langgraph.graph import StateGraph
-from agent.llm import groq_llm
-from agent.retriever import retriever
+from llm import groq_llm
+from retriever import retriever
 from typing import Optional,TypedDict
 
 class AgentState(TypedDict):
@@ -9,7 +9,7 @@ class AgentState(TypedDict):
     answer: Optional[str]
 
 def retrieve_node(state: AgentState):
-    docs = retriever.get_relevant_documents(state["query"])
+    docs = retriever.invoke(state["query"])
     state["context"] = "\n".join([d.page_content for d in docs])
     print("Context Chunks :\n")
     for doc in docs:

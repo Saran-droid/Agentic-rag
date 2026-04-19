@@ -1,7 +1,7 @@
 from fastapi import FastAPI,UploadFile, File
 from fastapi.responses import JSONResponse
-from agent.graph import run_agent
-from agent.retriever import ingest_pdf, clear_collection
+from graph import run_agent
+from retriever import ingest_pdf, clear_collection
 from contextlib import asynccontextmanager
 import os
 from dotenv import load_dotenv
